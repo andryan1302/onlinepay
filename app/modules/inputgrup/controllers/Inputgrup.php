@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * @author 		Maulana Rahman <maulana.code@gmail.com>
+ * @author 		Andryan@gmail.com
 */
-class Dashboard extends CI_Controller {
+class Inputgrup extends CI_Controller {
 
 	public function __construct()
 	{
@@ -12,26 +12,22 @@ class Dashboard extends CI_Controller {
 		{
 			redirect('admin/Login','refresh');
 		}
-		$this->load->model('Dashboard_model','model');
 	}
-
-
 	public function index()
 	{
 
 		if($this->alus_auth->logged_in())
          {
-         	$head['title'] = "Beranda";
+         	$head['title'] = "Operator";
 
 		 	$this->load->view('template/temaalus/header',$head);
-		 	$this->load->view('dashboard/index');
+		 	$this->load->view('operator-page');
 		 	$this->load->view('template/temaalus/footer');
 		}else
 		{
 			redirect('admin/Login','refresh');
 		}
 	}
-
 	function error404()
 	{
 		if($this->alus_auth->logged_in())

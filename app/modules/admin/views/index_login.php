@@ -35,8 +35,7 @@
 
   <style type="text/css">
   .cover{
-    background-image: url(<?php echo base_url('assets/logo/bg-01.jpg'); ?>);
-
+    background-image: url(<?php echo base_url('assets/logo/bg-01.jpg'); ?>)
   }
   .overlay {
   position: absolute;
@@ -76,7 +75,7 @@
       </div>
       <div class="form-group has-feedback">
      <!-- <div class="g-recaptcha" data-theme="light" data-sitekey="6LdVbg8UAAAAALev4WfQ3is84fRty4XVJg6VWnOb" style="transform:scale(1.06);transform-origin:0;-webkit-transform:scale(1.06);transform:scale(1.06);-webkit-transform-origin:0 0;transform-origin:0 0;"></div>
-        
+      
       </div> -->
       <div class="row">
         <div class="col-xs-8">
