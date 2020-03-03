@@ -12,6 +12,7 @@ class Inputgrup extends CI_Controller {
 		{
 			redirect('admin/Login','refresh');
 		}
+		$this->load->model('grup_model');
 	}
 	public function index()
 	{
@@ -42,8 +43,16 @@ class Inputgrup extends CI_Controller {
 			redirect('admin/Login','refresh');
 		}
 	}
+	function tambahmurid()
+	{
+		$head['title'] = "Tambah Murid";
 
-	
+		$data["produks"] = $this->grup_model->getById();
+		
+		$this->load->view('template/temaalus/header',$head);
+		$this->load->view('murid',$data);
+		$this->load->view('template/temaalus/footer');
+	}
 }
 
 /* End of file  Home.php */

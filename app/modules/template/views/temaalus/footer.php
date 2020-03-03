@@ -2,9 +2,9 @@
 <footer class="main-footer">
     <div class="container-fluid">
       <div class="pull-right hidden-xs">
-        <b>Poling Gaul Admin Panel</b>
+        <b>Pembayaran Elektronik</b>
       </div>
-      <strong>Copyright &copy; 2019 .</strong> All rights
+      <strong>Copyright &copy; 2020 .</strong> All rights
       reserved.
     </div>
     <!-- /.container -->

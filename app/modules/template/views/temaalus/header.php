@@ -50,10 +50,10 @@
   <script src="<?php echo base_url(); ?>assets/temaalus/plugins/datatables/dataTables.bootstrap.min.js"></script>
   <!-- Toasty Notif -->
   <script src="<?php echo base_url(); ?>assets/temaalus/dist/js/toasty.js"></script>
-
+  <script>var base_url = "<?php echo base_url(); ?>"; </script>
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-<body class="hold-transition sidebar-mini <?php echo $this->config->item('skin_page');?>" id="hidesidebar">
+<body class="hold-transition sidebar-mini skin-blue" id="hidesidebar">
 <div class="wrapper">
 
   <header class="main-header">
