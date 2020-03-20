@@ -14,8 +14,8 @@
 
       <!-- Main content -->
       <section class="content">
-        <div class="callout callout-info">
-          <p></p>
+        <div class="alert alert-info">
+          <p>Perhatian !! Gunakan Panel Ini Dengan Bijak</p>
         </div>
           <div class="box">
             <div class="box-header">
@@ -24,22 +24,25 @@
             <!-- /.box-header -->
             <div class="col-sm-12 btn-group form-group">
                 <button class="btn btn-xs btn-danger" onclick="window.location.href='<?php echo site_url('inputgrup')?>'"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-                <button class="btn btn-xs btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i>Reload</button>
             </div>
             <div class="box-body">
               <table id="table" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Users</th>
+                  <th>Kelas</th>
                   <th>Action</th>
                 </tr>
                 </thead>
-                <?php foreach ($produks as $produk): ?>
+                <?php foreach ($anggotas as $anggota): ?>
                 <tr>
-                <td><?php echo $produk->username ?></td>
-                <td><input type="checkbox" name="check"></td>
-                </tr>  
+                <td><?php echo $anggota->mk_nama ?></td>
+                <td><button class="btn btn-xs btn-primary" onclick="btn_modal_delete(<?php echo $grups->mg_id?>)"><i class="glyphicon glyphicon-trash"></i> Delete</button></td>
+                </tr>
                 <?php endforeach; ?>
+                <tr>
+           
+                </tr>  
+                
                 <tbody>
 
                 </tbody>

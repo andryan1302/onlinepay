@@ -23,10 +23,10 @@
             </div>
             <!-- /.box-header -->
             <div class="col-sm-12 btn-group form-group">
-                <?php if($can_add == 1){?>
+                 <?php if($can_add == 1){?> 
                 <button class="btn btn-xs btn-success" onclick="add_person()"><i class="glyphicon glyphicon-plus"></i> Tambah</button>
-                <?php } ?>
-                <button class="btn btn-xs btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+                 <?php } ?>
+                 <button class="btn btn-xs btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button> 
             </div>
             <div class="box-body">
               <table id="table" class="table table-bordered table-striped">

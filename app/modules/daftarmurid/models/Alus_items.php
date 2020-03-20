@@ -3,27 +3,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Alus_items extends CI_Model {
 
-	var $table = 'm_jurusan';
-    var $idtable = 'mj_id';
+	var $table = 'alus_u';
+    var $idtable = 'id';
     var $column_order = array(
-        'mj_id',
-        'mj_name',
-        'mj_angkatan'        
+        'id',
+        'username',
+        'grup'        
         );
     var $column_search = array(
-        'mj_id',
-        'mj_name',
-        'mj_angkatan'
+        'id',
+        'username',
+        'grup'
         );
-    var $order = array('mj_id' => 'ASC');
+    var $order = array('id' => 'ASC');
 
     /* Server Side Data */
 	/* Modified by : Maulana.code@gmail.com */
 
     private function _get_datatables_query()
     {
-         
+        
         $this->db->from($this->table);
+        $session_siswa = $this->db->where('id', $this->session->userdata('user_id'));
+        $this->db->where('kelas',$session_guru); 
  
         $i = 0;
      
@@ -74,7 +76,7 @@ class Alus_items extends CI_Model {
         $query = $this->db->get();
         return $query->num_rows();
     }
- 
+
     public function count_all()
     {
         $this->db->from($this->table);

@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author Oky Octaviansyah <oky.octaviansyah@yahoo.co.id>
 */
 
-class Jurusan extends CI_Controller {
+class Daftarmurid extends CI_Controller {
 	
 	public function __construct()
 	{	
@@ -17,7 +17,7 @@ class Jurusan extends CI_Controller {
 	{
 		if($this->alus_auth->logged_in())
          {
-         	$title_head = "Jurusan";
+         	$title_head = "Murid";
          	$head['title'] = $title_head;
          	$data['title_head'] = $title_head;
 			 /*DATA*/
@@ -45,13 +45,13 @@ class Jurusan extends CI_Controller {
             $row = array();
 			$row[] = $no;
 			
-            $row[] = $person->mj_name;
-			$row[] = $person->mj_angkatan;
+            $row[] = $person->username;
+			$row[] = $person->grup;
 			
  			
-        	$row[] = "<a href='javascript:' onClick='btn_modal_edit(".$person->mj_id.")' data-toggle='tooltip' data-placement='bottom' title='Edit' class='btn btn-xs btn-flat btn-primary' style='background:#00897b'><i class='fa fa-edit'></i> Edit</a>".
-        			 "<a href='javascript:' onClick='btn_modal_delete(".$person->mj_id.")' data-toggle='tooltip' data-placement='bottom' title='Delete' class='btn btn-xs btn-flat btn-danger'><i class='fa fa-trash'></i> Delete</a>";
-        	
+        	$row[] = "<a href='javascript:' onClick='btn_modal_edit(".$person->id.")' data-toggle='tooltip' data-placement='bottom' title='Edit' class='btn btn-xs btn-flat btn-primary' style='background:#00897b'><i class='fa fa-edit'></i> Edit</a>".
+        			 "<a href='javascript:' onClick='btn_modal_delete(".$person->id.")' data-toggle='tooltip' data-placement='bottom' title='Delete' class='btn btn-xs btn-flat btn-danger'><i class='fa fa-trash'></i> Delete</a>";
+        	$row[] =  "<a href='javascript:' onClick='btn_modal_list(".$person->id.")' data-toggle='tooltip' data-placement='bottom'   title='List' class='btn btn-xs btn-flat btn-info' style='background:#00897b'><i class='fa fa-edit'></i> Tunggakan</a>";
             //add html for action
             $data[] = $row;
         }
@@ -70,14 +70,14 @@ class Jurusan extends CI_Controller {
 
     function modal_add()
     {
-    	$data['title'] = "Add Jurusan";
+    	$data['title'] = "Add Murid";
     	$this->load->view('ajax/modal_add', $data, FALSE);
     }
 
     function modal_edit($id)
     {
     	$data['data'] = $this->Alus_items->getid($id);
-    	$data['title'] = "Edit Jurusan";
+    	$data['title'] = "Edit Murid";
     	$this->load->view('ajax/modal_edit', $data, FALSE);
     }
 
@@ -131,6 +131,10 @@ class Jurusan extends CI_Controller {
     	{
     		echo "Tidak Terhapus";
     	}
+    }
+    function list($id)
+    {
+        echo $id;
     }
 
 }

@@ -3,21 +3,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Alus_items extends CI_Model {
 
-	var $table = 'm_jurusan';
-    var $idtable = 'mj_id';
+	var $table = 'm_grup';
+    var $mg_idtable = 'mg_id';
     var $column_order = array(
-        'mj_id',
-        'mj_name',
-        'mj_angkatan'        
+        'mg_id',
+        'nama_g',
+        'deskripsi'        
         );
     var $column_search = array(
-        'mj_id',
-        'mj_name',
-        'mj_angkatan'
+        'mg_id',
+        'nama_g',
+        'deskripsi'  
         );
-    var $order = array('mj_id' => 'ASC');
+    var $order = array('mg_id' => 'ASC');
 
-    /* Server Side Data */
+    /* Server Smg_ide Data */
 	/* Modified by : Maulana.code@gmail.com */
 
     private function _get_datatables_query()
@@ -81,11 +81,11 @@ class Alus_items extends CI_Model {
         return $this->db->count_all_results();
     }
 
-    /* end server side  */
+    /* end server smg_ide  */
 
-    function getid($id)
+    function getmg_id($mg_id)
     {
-        $this->db->where($this->idtable, $id);
+        $this->db->where($this->mg_idtable, $mg_id);
         return $this->db->get($this->table)->result();
     }
 
@@ -96,13 +96,13 @@ class Alus_items extends CI_Model {
 
     function edit($data)
     {
-        $this->db->where($this->idtable, $this->input->post($this->idtable));
+        $this->db->where($this->mg_idtable, $this->input->post($this->mg_idtable));
         return $this->db->update($this->table, $data);
     }
 
-    function delete($id)
+    function delete($mg_id)
     {
-        $this->db->where($this->idtable, $id);
+        $this->db->where($this->mg_idtable, $mg_id);
         return $this->db->delete($this->table);
     }
 }
