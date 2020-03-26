@@ -4,44 +4,60 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-           <i class="fa fa-circle-o-notch" style="color:#008582;font-size:33px;"></i> Manajemen Group
+           <i class="fa fa-circle-o-notch" style="color:#008582;font-size:33px;"></i> Tagihan
           <small></small>
         </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Menus</a></li>
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         </ol>
       </section>
 
       <!-- Main content -->
       <section class="content">
         <div class="alert" style="background-color:#00a65a; color:white;">
-        <b>Perhatian!!</b><p>Gunakan Panel Group ini Dengan Bijak</p>
+        <b>Selamat Datang !! </b><p>Berikut Daftar Tagihan Anda</p>
         </div>
           <div class="box" style="border-top:#00a65a 6px solid;">
             <div class="box-header">
-              <h3 class="box-title">Manajemen Group</h3>
+              <h3 class="box-title">Tagihan</h3>
             </div>
             <!-- /.box-header -->
-            <div class="col-sm-12 btn-group form-group">
-                <button class="btn btn-xs btn-success" onclick="add_person()"><i class="glyphicon glyphicon-plus"></i>Tambah</button>
-            </div>
+
             <div class="box-body" style="max-height: 300px;overflow-y: scroll;">
               <table id="table" class="table table-hover table-bordered mb-0">
                 <thead>
                 <tr>
-                  <th>Nama Group</th>
-                  <th>Deskripsi</th>
+                  <th>No</th>
+                  <th>Nama</th>
+                  <th>Tagihan</th>
+                  <th>Jumlah</th>
+                  <th>Denda</th>
+                  <TH>Deskripsi</TH>
                   <th>Tools</th>
                 </tr>
                 </thead>
                 <tbody>
-                  <?php foreach($grup as $grups): ?>
+
+                  <?php $no = 1; foreach($tagihans as $tagihan): ?>
                   <tr>
-                    <td><?php echo $grups->mg_nama ?></td>
-                    <td><?php echo $grups->mg_deskripsi ?></td>
-                    <td><button class="btn btn-xs btn-success" onclick="window.location.href='<?php echo site_url('inputgrup/lihatmurid/'.$grups->mg_id)?>'"><i class="glyphicon glyphicon-file"></i>Anggota</button> <button class="btn btn-xs btn-danger" onclick="btn_modal_delete(<?php echo $grups->mg_id?>)"><i class="glyphicon glyphicon-trash"></i>Delete</button></td>
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo $tagihan->tt_nama ?></td>
+                    <td><?php echo $tagihan->tt_tagihan ?></td>
+                    <td><?php echo $tagihan->tt_jumlah ?></td>
+                    <td><?php echo $tagihan->tt_denda ?></td>
+                    <td><?php echo $tagihan->tt_deskripsi ?></td>
+                    <td><button class="btn btn-xs btn-primary" style="background-color:#00a65a;border:1px solid #00a65a;" onclick="window.location.href='<?php echo site_url('')?>'"><i class="glyphicon glyphicon-plus"></i> Bayar</button></td>
                   </tr>
                   <?php endforeach; ?>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-xs btn-primary" style="background-color:#00a65a;border:1px solid #00a65a;" onclick="window.location.href='<?php echo site_url('')?>'"><i class="glyphicon glyphicon-plus"></i> Bayar Semua</button></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -78,37 +94,10 @@
                                 <input type="text" name="des_group" class="form-control" placeholder="Deskripsi Group" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <!-- <label class="control-label col-md-" >Group</label> -->
-                            <div style="border:0px solid #ccc; width:100% ; height: 190px; overflow-y: scroll; padding-left: 10px;">
-                              <div class="contain">
-                                <table class="table table-striped table-bordered table-hover"> 
-                                  <thead>
-                                    <tr>
-                                      <th width="100px"><input type="checkbox" id="checkall"> Checkall</th>
-                                      <th>Kelas</th>
-                                      <th>Deskripsi</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <?php foreach ($kelas as $data): ?>
-                                    <tr>
-                                      <td>
-                                        <input type="checkbox" name="kelas[]" value="<?php echo $data->mk_id ?>">
-                                      </td>
-                                      <td><?php echo $data->mk_nama ?></td>
-                                      <td><?php echo $data->mk_deskripsi ?></td>
-                                    </tr>
-                                    <?php endforeach ?>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                        </div>
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btnSave" onclick="check_all()" class="btn btn-primary">Save</button>
+                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
                 <button type="clear" class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </div>
                 </form>
@@ -118,7 +107,7 @@
 <!-- / Modal -->
 
 <script>
-    $('#checkall').click(function () {
+    $('#check-all').click(function () {
     $('input[type=checkbox]').not(":disabled").prop('checked', this.checked);
     });
   function add_person()

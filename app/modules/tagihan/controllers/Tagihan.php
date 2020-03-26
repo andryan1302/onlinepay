@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * @author 		Andryan@gmail.com
 */
-class Inputgrup extends CI_Controller 
+class Tagihan extends CI_Controller 
 {
 
 	public function __construct()
@@ -13,17 +13,17 @@ class Inputgrup extends CI_Controller
 		{
 			redirect('admin/Login','refresh');
 		}
-		$this->load->model('grup_model');
+		$this->load->model('tagihan_model');
 	}
+
 	public function index()
 	{
 
 		if($this->alus_auth->logged_in())
          {
-         	$head['title'] = "Operator";
+         	$head['title'] = "Murid";
 
-         	$data["grup"] = $this->grup_model->getAll();
-         	$data["kelas"] = $this->grup_model->getAllkelas();
+         	$data['tagihans'] = $this->tagihan_model->getAll();
 		 	$this->load->view('template/temaalus/header',$head);
 		 	$this->load->view('index',$data);
 		 	$this->load->view('template/temaalus/footer');
@@ -32,36 +32,7 @@ class Inputgrup extends CI_Controller
 			redirect('admin/Login','refresh');
 		}
 	}
-	
-	function lihatmurid()
-	{
-		$head['title'] = "Operator";
 
-		$mg_id = $this->uri->segment(3);
-		$data['anggotas'] = $this->grup_model->getanggota($mg_id);
-		$this->load->view('template/temaalus/header',$head);
-		$this->load->view('anggota',$data);
-		$this->load->view('template/temaalus/footer');
-	}
-	
-	public function deleteanggota($id)
-	{	
-		$this->grup_model->deleteanggota($id);
-		echo "Terhapus";
-	}	
-
-    public function add()
-    {
-    	$this->grup_model->save();
-        echo "Berhasil";
-    }
-    
-    public function delete($id)
-    {
-    	$this->grup_model->delete($id);
-    	echo "Terhapus";
-    }
-	
 	function error404()
 	{
 		if($this->alus_auth->logged_in())

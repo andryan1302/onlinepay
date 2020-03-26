@@ -15,6 +15,7 @@ class Inputtagihan extends CI_Controller
 		}
 		$this->load->model('tagihan_model');
 	}
+
 	public function index()
 	{
 
@@ -32,6 +33,30 @@ class Inputtagihan extends CI_Controller
 			redirect('admin/Login','refresh');
 		}
 	}
+
+	public function save()
+	{
+		$data=$_POST['grup'];
+		$grups=$this->tagihan_model->getdata($data);
+		$billname=$_POST['namabill'];
+        $price=$_POST['harga'];
+        $keterangan="belum dibayar";
+        $pesan=$_POST['message'];
+        $index=0;
+        foreach($grups as $dataid)
+         {
+         	$user = $dataid->username[$index];
+            array_push($datatagihan,array(
+                'tt_nama'=>$user,
+                'tt_tagihan'=>$billname,
+                'tt_jumlah'=>$price,
+                'keterangan'=>$keterangan,
+                'tt_deskripsi'=>$pesan,
+            ));
+            $index++; 
+         }
+         $this->db->insert_batch('t_tagihan',$datatagihan);
+	 }
 }
 /* End of file  Home.php */
 /* Location: ./application/controllers/ Home.php */

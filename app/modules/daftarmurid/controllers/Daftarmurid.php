@@ -46,12 +46,8 @@ class Daftarmurid extends CI_Controller {
 			$row[] = $no;
 			
             $row[] = $person->username;
-			$row[] = $person->grup;
+			// $row[] = $person->grup;
 			
- 			
-        	$row[] = "<a href='javascript:' onClick='btn_modal_edit(".$person->id.")' data-toggle='tooltip' data-placement='bottom' title='Edit' class='btn btn-xs btn-flat btn-primary' style='background:#00897b'><i class='fa fa-edit'></i> Edit</a>".
-        			 "<a href='javascript:' onClick='btn_modal_delete(".$person->id.")' data-toggle='tooltip' data-placement='bottom' title='Delete' class='btn btn-xs btn-flat btn-danger'><i class='fa fa-trash'></i> Delete</a>";
-        	$row[] =  "<a href='javascript:' onClick='btn_modal_list(".$person->id.")' data-toggle='tooltip' data-placement='bottom'   title='List' class='btn btn-xs btn-flat btn-info' style='background:#00897b'><i class='fa fa-edit'></i> Tunggakan</a>";
             //add html for action
             $data[] = $row;
         }

@@ -4,17 +4,17 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          Menus
-          <small>Manajemen Users </small>
+         <i class="fa fa-user" style="color:#008582;font-size:30px;"></i> Anggota
+          <small></small>
         </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Menus</a></li>
+          <li><a href="#"><i class="fa fa-dashboard"></i> user</a></li>
         </ol>
       </section>
 
       <!-- Main content -->
       <section class="content">
-        <div class="alert alert-info">
+        <div class="alert" style="background-color:#00a65a; color:white;">
           <p>Perhatian !! Gunakan Panel Ini Dengan Bijak</p>
         </div>
           <div class="box">
@@ -36,7 +36,7 @@
                 <?php foreach ($anggotas as $anggota): ?>
                 <tr>
                 <td><?php echo $anggota->mk_nama ?></td>
-                <td><button class="btn btn-xs btn-primary" onclick="btn_modal_delete(<?php echo $grups->mg_id?>)"><i class="glyphicon glyphicon-trash"></i> Delete</button></td>
+                <td><button class="btn btn-xs btn-primary" onclick="btn_modal_delete(<?php echo $anggota->id ?>)"><i class="glyphicon glyphicon-trash"></i> Delete</button></td>
                 </tr>
                 <?php endforeach; ?>
                 <tr>
@@ -57,7 +57,35 @@
     <!-- /.container -->
   </div>
   <!-- /.content-wrapper -->
+<script>
+function btn_modal_delete(id)
+{    
+    var r = confirm("Anda Yakin Hapus !");
+    if (r == true){
+        btn_save_delete(id);
+    } else {
+        popup('batal');
+    } 
+}
 
+function btn_save_delete(id)
+{
+    $.ajax({
+        url: '<?php echo site_url('inputgrup/deleteanggota/') ?>'+id,
+        beforeSend: function(){
 
-
+        },
+        success: function(msg){
+          if(msg == "Terhapus")
+          {
+            window.location.href='<?php echo site_url('inputgrup/lihatmurid/'.$this->uri->segment(3))?>';
+          }
+          elseS
+          {
+            alert('gagal');
+          }
+        }
+      });
+}
+</script>
   

@@ -7,13 +7,11 @@ class Alus_items extends CI_Model {
     var $idtable = 'id';
     var $column_order = array(
         'id',
-        'username',
-        'grup'        
+        'username'        
         );
     var $column_search = array(
         'id',
-        'username',
-        'grup'
+        'username'
         );
     var $order = array('id' => 'ASC');
 
@@ -22,10 +20,12 @@ class Alus_items extends CI_Model {
 
     private function _get_datatables_query()
     {
-        
         $this->db->from($this->table);
-        $session_siswa = $this->db->where('id', $this->session->userdata('user_id'));
-        $this->db->where('kelas',$session_guru); 
+        $this->db->join('t_kelas','t_kelas.user_id=alus_u.id');
+        $this->db->join('t_guru','t_kelas.kelas_id=t_guru.tg_nama_kelas');
+        $sessionguru = $this->session->userdata('user_id');
+        $this->db->where('tg_nama_guru',$sessionguru); 
+        $this->db->where('tg_status','active');
  
         $i = 0;
      

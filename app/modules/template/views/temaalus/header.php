@@ -53,7 +53,7 @@
   <script>var base_url = "<?php echo base_url(); ?>"; </script>
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-<body class="hold-transition sidebar-mini skin-blue" id="hidesidebar">
+<body class="hold-transition sidebar-mini skin-green" id="hidesidebar">
 <div class="wrapper">
 
   <header class="main-header">

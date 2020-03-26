@@ -2,21 +2,16 @@
       
       <section class="content-header">
         <h1>
-           <i class="fa fa-circle-o-notch" style="color:#ff4900;font-size:23px;"></i> <?php echo $title_head; ?>
+           <i class="fa fa-address-book" style="color:#00a65a;font-size:30px;"></i> List <?php echo $title_head; ?>
           <small></small>
         </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-home"></i>  <?php echo $title_head; ?></a></li>
         </ol>
       </section>
 
       <section class="content">
-        <div class="box box-success" style="border-top:#ff4900 6px solid;">
+        <div class="box box-success" style="border-top:#00a65a 6px solid;">
             <div class="box-header">
-                <h3 class="box-title">
-                  <a href="javascript:" data-toggle="modal" data-target="#modal_add" onClick="btn_modal_add()" class="btn btn-sm btn-flat btn-primary" style="background:#ff4900;border-color:#c13700 !important;"><i class="fa fa-plus"></i> Add <?php echo $title_head; ?></a>
-                  <a href="javascript:" onClick="reload_table()" class="btn btn-sm btn-flat btn-default"><i class="fa fa-refresh"></i> Reload</a>
-                </h3>
             </div>
             
             <div class="box-body">
@@ -26,10 +21,7 @@
                   <th width="1%">No</th>
 
                   <th>Nama</th>
-                  <th>Kelas</th>
 
-                  <th width="100px">Tools</th>
-                  <th>List</th>
                   </tr>
               </thead>
               <tbody>

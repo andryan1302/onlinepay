@@ -15,4 +15,13 @@ class tagihan_model extends CI_Model {
     {
     	return $this->db->get('m_tagihan')->result();
     }
+    public function getdata($data)
+    {
+        $this->db->from('t_grup');
+        $this->db->join('t_kelas','t_grup.kelas_id=t_kelas.kelas_id');
+        $this->db->join('alus_u','t_kelas.user_id=alus_u.id');
+        $this->db->where('group_id',$data); 
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

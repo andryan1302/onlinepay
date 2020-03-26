@@ -13,46 +13,46 @@
       </section>
       <!-- Main content -->
       <section class="content">
-        <div class="callout callout-info">
+        <div class="alert" style="background-color:#00a65a; color:white;">
           <p>Silahkan Mengisi Form Dibawah Dengan Cermat</p>
         </div>
         
           <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h1 class="panel-title">Input Tagihan</h1>
+            <div class="panel-heading" style="background-color: #008582">
+              <h1 class="panel-title"><b>Input Tagihan</b></h1>
             </div>
         
             <!-- /.box-header -->
             <div class="box-body">                
                 <div class="row">
                     <div class="col-sm-12">
-                        <form>
+                        <form method="POST" id="form">
                             <div class="form-group">
                                 <label for="nama">Nama Tagihan</label>
-                                <select class="form-control">
+                                <select class="form-control" name="namabill">
                                   <option>--SELECT TAGIHAN--</option>
                                   <?php foreach ($tagihan as $tagihans): ?>
-                                  <option><?php echo $tagihans->mt_nama ?></option>
+                                  <option value="<?php echo $tagihans->mt_nama ?>"><?php echo $tagihans->mt_nama ?></option>
                                   <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="email">Harga</label>
-                                <input type="number" id="number" class="form-control">
+                                <input type="number" name="harga" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Target</label>
-                                <select class="form-control">
+                                <select class="form-control" name="grup">
                                   <option>--SELECT GROUPS--</option>
                                   <?php foreach ($groups as $group): ?>
-                                  <option><?php echo $group->mg_nama ?></option>
+                                  <option value="<?php echo $group->mg_id ?>"><?php echo $group->mg_nama ?></option>
                                   <?php endforeach; ?>
                                 </select>
                             <div class="form-group">
                                 <label for="pesan">Message</label>
-                                <textarea class="form-control" rows=3 placeholder="Masukkan Pesan"></textarea>
+                                <textarea class="form-control" rows=3 placeholder="Masukkan Pesan" name="massage"></textarea>
                             </div>
-                                <button type="submit" class="btn btn-success">Send</button>
+                                <button type="button" onclick="modal_save()" class="btn btn-success">Save</button>
                                 <button type="reset" class="btn btn-danger">Cancel</button>
                         </form>
                     </div>
@@ -68,4 +68,24 @@
   </div>
   <!-- /.content-wrapper -->
 
-  
+<script type="text/javascript">
+function modal_save()
+{
+  $.ajax({
+        url : '<?php echo site_url('inputtagihan/save') ?>',
+        type: "POST",
+        data: $('#form').serialize(),
+        success: function(data)
+        {
+          if(data == "Berhasil")
+          { 
+              window.location.href='<?php echo site_url('inputtagihan')?>';    
+          }
+          else
+          {
+            popup('Gagal');
+          }
+        }
+    });
+}
+  </script>
