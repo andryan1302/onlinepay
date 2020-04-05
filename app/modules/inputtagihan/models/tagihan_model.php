@@ -11,10 +11,6 @@ class tagihan_model extends CI_Model {
     {
     	return $this->db->get('m_grup')->result();
     }
-    public function getDataTagihan()
-    {
-    	return $this->db->get('m_tagihan')->result();
-    }
     public function getdata($data)
     {
         $this->db->from('t_grup');

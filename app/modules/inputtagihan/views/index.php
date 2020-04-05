@@ -15,8 +15,8 @@
       <section class="content">
         <div class="alert" style="background-color:#00a65a; color:white;">
           <p>Silahkan Mengisi Form Dibawah Dengan Cermat</p>
+
         </div>
-        
           <div class="panel panel-primary">
             <div class="panel-heading" style="background-color: #008582">
               <h1 class="panel-title"><b>Input Tagihan</b></h1>
@@ -29,12 +29,7 @@
                         <form method="POST" id="form">
                             <div class="form-group">
                                 <label for="nama">Nama Tagihan</label>
-                                <select class="form-control" name="namabill">
-                                  <option>--SELECT TAGIHAN--</option>
-                                  <?php foreach ($tagihan as $tagihans): ?>
-                                  <option value="<?php echo $tagihans->mt_nama ?>"><?php echo $tagihans->mt_nama ?></option>
-                                  <?php endforeach; ?>
-                                </select>
+                                <input type="text" name="namabill" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="email">Harga</label>
@@ -44,7 +39,7 @@
                                 <label>Target</label>
                                 <select class="form-control" name="grup">
                                   <option>--SELECT GROUPS--</option>
-                                  <?php foreach ($groups as $group): ?>
+                                  <?php foreach ($groups as $key => $group): ?>
                                   <option value="<?php echo $group->mg_id ?>"><?php echo $group->mg_nama ?></option>
                                   <?php endforeach; ?>
                                 </select>
@@ -52,7 +47,7 @@
                                 <label for="pesan">Message</label>
                                 <textarea class="form-control" rows=3 placeholder="Masukkan Pesan" name="massage"></textarea>
                             </div>
-                                <button type="button" onclick="modal_save()" class="btn btn-success">Save</button>
+                                <button type="button" onclick="modal_save()" class="btn btn-success">Kirim</button>
                                 <button type="reset" class="btn btn-danger">Cancel</button>
                         </form>
                     </div>
@@ -79,7 +74,7 @@ function modal_save()
         {
           if(data == "Berhasil")
           { 
-              window.location.href='<?php echo site_url('inputtagihan')?>';    
+              window.location.href='<?php echo site_url('inputtagihan')?>';
           }
           else
           {

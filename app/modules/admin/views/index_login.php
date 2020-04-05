@@ -35,63 +35,91 @@
 
   <style type="text/css">
   .cover{
-    background-image: url(<?php echo base_url('assets/logo/bg-01.jpg'); ?>)
+    background-image: url(<?php echo base_url('assets/logo/bgku8.jpg'); ?>);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-  .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;   
-  height: 100%;
-  width: 100%;
-  opacity: 0.7;
-  background: rgb(0,166,90);
-  background: linear-gradient(95deg, rgba(0,166,90,1) 0%, rgba(27,150,221,1) 82%);
-  z-index: -1;
-}
+  .login-box-body
+  {
+    border-radius: 15px;
+    min-height: 500px;
+    margin-top: 60px;
+  }
+  .text
+  {
+    margin-top: 60px;
+    color:#00021a;
+    font-family: "calibri";
+  }
+  h1
+  {
+   font-family: "calibri"; 
+  }
+  .img
+  {
+    max-height: 200px;
+    max-width: 200px;
+  }
   </style>
 </head>
 
-<body class="hold-transition login-page cover">
+<body class="cover">
 <div class="overlay">
-</div>
-<div class="login-box" style="z-index: 3">
-  <div class="login-logo">
-    <a href="" style='color:#fff;'><b>Login</b></a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+        <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <img src="<?php echo base_url('assets/logo/faviconfhk.png'); ?>" class="img">
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7 text">
+                  <b>
+                  <h1>Pembayaran Online</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </b>
+                </div>
+                <div class ="col-sm-4 col-sm-offset-1">
+                      <div class="login-box-body">
+                        <h2 class="login-box-msg"><b>Login</b></h2>
+                        <p class="login-box-msg">Sign in to start your Payment</p>
 
-    <form action="<?php echo base_url('admin/Login/login'); ?>" method="post" id="form">
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email" name="identity">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" name="password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-     <!-- <div class="g-recaptcha" data-theme="light" data-sitekey="6LdVbg8UAAAAALev4WfQ3is84fRty4XVJg6VWnOb" style="transform:scale(1.06);transform-origin:0;-webkit-transform:scale(1.06);transform:scale(1.06);-webkit-transform-origin:0 0;transform-origin:0 0;"></div>
-      
-      </div> -->
-      <div class="row">
-        <div class="col-xs-8">
-          
+                        <form action="<?php echo base_url('admin/Login/login'); ?>" method="post" id="form">
+                          <div class="form-group has-feedback">
+                            <input type="email" class="form-control" placeholder="Email" name="identity" required autofocus=>
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                          </div>
+                          <div class="form-group has-feedback">
+                            <input type="password" class="form-control" placeholder="Password" name="password" required>
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-12">
+                              <button type="button" class="btn btn-primary btn-block btn-flat" id="submitform">Sign In</button>
+                            </div>
+                            <br>
+                            <br>
+                        <!-- /.col -->
+                            <div class="col-xs-12">
+                              <button type="reset" class="btn btn-danger btn-block btn-flat">Cancel</button>
+                            </div>
+                        <!-- /.col -->
+                          </div>
+                        </form>
+                      </div>
+              <!-- /.login-box-body -->
+                    </div>
+              <!-- /.login-box -->
+                </div>
+            </div>
+             </div>
         </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="button" class="btn btn-primary btn-block btn-flat" id="submitform">Sign In</button>
-        </div>
-        <!-- /.col -->
-      </div>
-    </form>
-  </div>
-  <!-- /.login-box-body -->
 </div>
-<!-- /.login-box -->
+
 
 <!-- jQuery 2.2.3 -->
 <script src="<?php echo base_url(); ?>assets/temaalus/plugins/jQuery/jquery-2.2.3.min.js"></script>
