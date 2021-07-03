@@ -26,4 +26,11 @@ class history_model extends CI_Model {
         $this->db->where('nama',$username);
         return $this->db->get()->result();
     } 
+
+    public function updateselesai($ids){
+        $post = $this->input->post();
+        $this->keterangan      = "selesai";
+        $this->db->update('history',$this,array('history_id' => $ids));
+        
+    }
 }

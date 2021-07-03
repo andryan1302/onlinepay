@@ -60,8 +60,13 @@ class Inputgrup extends CI_Controller
     {
     	$this->grup_model->delete($id);
     	echo "Terhapus";
-    }
+	}
 	
+	public function update(){
+		$this->grup_model->update();
+		echo "TerUpdate";
+	}
+
 	function error404()
 	{
 		if($this->alus_auth->logged_in())

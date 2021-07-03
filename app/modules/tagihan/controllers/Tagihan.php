@@ -32,6 +32,21 @@ class Tagihan extends CI_Controller
 			redirect('admin/Login','refresh');
 		}
 	}
+	public function bayar()
+	{
+			$head['title'] = "Bayar";
+			$id = $this->uri->segment(3);
+			
+         	$data['tagihans'] = $this->tagihan_model->getbayaran($id);
+		 	$this->load->view('template/temaalus/header',$head);
+		 	$this->load->view('konfirmasi',$data);
+		 	$this->load->view('template/temaalus/footer');
+	}
+
+	public function checkout(){
+		$this->tagihan_model->checkout();
+		echo "Berhasil";
+	}
 
 	function error404()
 	{

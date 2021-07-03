@@ -38,7 +38,9 @@
                   <th>Jumlah</th>
                   <th>Tanggal</th>
                   <th>Deskripsi</th>
+                  <th>Metode Pembayaran</th>
                   <th>keterangan</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,7 +53,9 @@
                     <td><?php echo $data->jumlah ?></td>
                     <td><?php echo $data->tanggal ?></td>
                     <td><?php echo $data->deskripsi ?></td>
+                    <td><?php echo $data->metode_pembayaran ?></td>
                     <td><?php echo $data->keterangan ?></td>
+                    <td><button class="btn btn-xs btn-primary button" keterangan="<?php echo $data->keterangan ?>" data2 = <?php echo $data->history_id ?>><i class="fa fa-check xxx"></i> Selesai</button></td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -69,4 +73,14 @@
   <!-- /.content-wrapper -->
 
 
-  
+<script>
+$('.button').click(function(){
+  let data = $(this).attr('keterangan');
+  let link = $(this).attr('data2');
+  if(data != "selesai"){
+    window.location.href='<?php echo site_url('inputhistory/update/')?>'+link;
+  }else{
+    alert('ini sudah selesai');
+  }
+});
+</script>

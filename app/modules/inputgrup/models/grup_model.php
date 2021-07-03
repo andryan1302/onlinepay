@@ -60,4 +60,11 @@ class grup_model extends CI_Model {
         $this->db->insert_batch('t_grup',$data);
     }
        
+    public function update(){
+        $id = $this->input->post('ids');
+        $post = $this->input->post();
+        $this->mg_nama      = $post["group_nama"];
+        $this->mg_deskripsi   = $post["des_group"];
+        $this->db->update('m_grup',$this,array('mg_id' => $id));
+    }
 }

@@ -4,22 +4,22 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-           <i class="fa fa-circle-o-notch" style="color:#008582;font-size:33px;"></i> Tagihan
-          <small></small>
+           <i class="fa fa-circle-o-notch" style="color:#008582;font-size:33px;"></i> History
+          <small>Manajemen History</small>
         </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="#"><i class="fa fa-dashboard"></i> History</a></li>
         </ol>
       </section>
 
       <!-- Main content -->
       <section class="content">
         <div class="alert" style="background-color:#00a65a; color:white;">
-        <b>Selamat Datang !! </b><p>Berikut Daftar Tagihan Anda</p>
+        <b>Perhatian!!</b><p>Gunakan Panel Group ini Dengan Bijak</p>
         </div>
           <div class="box" style="border-top:#00a65a 6px solid;">
             <div class="box-header">
-              <h3 class="box-title">Tagihan</h3>
+              <h3 class="box-title">History</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body" style="max-height: 300px;overflow-y: scroll;">
@@ -27,23 +27,27 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Nama</th>
+                  <th>Nama Siswa</th>
                   <th>Tagihan</th>
                   <th>Jumlah</th>
-                  <TH>Deskripsi</TH>
-                  <th>Bayar</th>
+                  <th>Tanggal</th>
+                  <th>Deskripsi</th>
+                  <th>Metode Pembayaran</th>
+                  <th>keterangan</th>
                 </tr>
                 </thead>
                 <tbody>
-
-                  <?php $no = 1; foreach($tagihans as $tagihan): ?>
+                  <?php $no=1;?>
+                  <?php foreach($history as $data): ?>
                   <tr>
                     <td><?php echo $no++ ?></td>
-                    <td><?php echo $tagihan->tt_nama ?></td>
-                    <td><?php echo $tagihan->tt_tagihan ?></td>
-                    <td><?php echo $tagihan->tt_jumlah ?></td>
-                    <td><?php echo $tagihan->tt_deskripsi ?></td>
-                    <td><button class="btn btn-xs btn-success" onclick="window.location.href='<?php echo site_url('tagihan/bayar/'.$tagihan->tt_id)?>'"><i class="glyphicon glyphicon-plus"></i> Bayar</button></td>
+                    <td><?php echo $data->nama ?></td>
+                    <td><?php echo $data->tagihan ?></td>
+                    <td><?php echo $data->jumlah ?></td>
+                    <td><?php echo $data->tanggal ?></td>
+                    <td><?php echo $data->deskripsi ?></td>
+                    <td><?php echo $data->metode_pembayaran ?></td>
+                    <td><?php echo $data->keterangan ?></td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -59,6 +63,6 @@
     <!-- /.container -->
   </div>
   <!-- /.content-wrapper -->
-  
+
 
   

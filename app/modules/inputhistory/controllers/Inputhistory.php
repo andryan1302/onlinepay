@@ -41,10 +41,13 @@ class Inputhistory extends CI_Controller
 		 	$this->load->view('murid',$data);
 		 	$this->load->view('template/temaalus/footer');
 	}
-
+	public function update(){
+		$ids = $this->uri->segment(3);
+		$this->history_model->updateselesai($ids);
+		redirect('inputhistory');
+	}
 	function history()
 	{
-		
 		$username = $this->uri->segment(3);
 		$head['title'] = "History $username";
 

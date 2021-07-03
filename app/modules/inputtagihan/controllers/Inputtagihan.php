@@ -40,13 +40,14 @@ class Inputtagihan extends CI_Controller
 		$namatagihan=$_POST['namabill'];
 		$harga=$_POST['harga'];
 		$deskripsi=$_POST['massage'];
-		$keterangan="belum dibayar";
 		$data2=array();
+		$koderandom = rand(12412,99999);
+		$norekening = '023153'.$koderandom;
 		$index=0;
 		foreach ($grup as $key => $value){
 		if($key==$index)
 		{
-			array_push($data2,array('tt_nama'=>$value->username,'tt_tagihan'=>$namatagihan,'tt_jumlah'=>$harga,'tt_deskripsi'=>$deskripsi,'keterangan'=>$keterangan));
+			array_push($data2,array('tt_nama'=>$value->username,'tt_tagihan'=>$namatagihan,'tt_jumlah'=>$harga,'tt_deskripsi'=>$deskripsi));
 			$index++;
 		}}
 		$insert = $this->db->insert_batch('t_tagihan',$data2);

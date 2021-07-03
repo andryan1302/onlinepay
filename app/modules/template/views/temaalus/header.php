@@ -27,6 +27,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/temaalus/bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap 4.0 -->
+  <!-- <link rel="stylesheet" href="<?php echo base_url('assets/temaalus/bootstrap4/css/bootstrap.min.css'); ?>"> -->
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/temaalus/dist/fontawesome/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -63,7 +65,7 @@
         </span>
         <span class="logo-lg">
         <!-- <img src="<?php echo base_url('assets/logo/poling_gaul.jpeg'); ?>" width="20%" style="border-radius: 50%;"> -->
-          <b><?php echo $this->alus_auth->name_application();?></b> 
+          <b>DASHBOARD</b> 
         </span>
       </a>
     <nav class="navbar navbar-static-top">

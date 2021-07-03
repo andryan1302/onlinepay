@@ -39,7 +39,7 @@
                   <tr>
                     <td><?php echo $grups->mg_nama ?></td>
                     <td><?php echo $grups->mg_deskripsi ?></td>
-                    <td><button class="btn btn-xs btn-success" onclick="window.location.href='<?php echo site_url('inputgrup/lihatmurid/'.$grups->mg_id)?>'"><i class="glyphicon glyphicon-file"></i>Anggota</button> <button class="btn btn-xs btn-danger" onclick="btn_modal_delete(<?php echo $grups->mg_id?>)"><i class="glyphicon glyphicon-trash"></i>Delete</button></td>
+                    <td><button class="btn btn-xs btn-success" onclick="window.location.href='<?php echo site_url('inputgrup/lihatmurid/'.$grups->mg_id)?>'"><i class="glyphicon glyphicon-file"></i>Anggota</button> <button class="btn btn-xs btn-danger" onclick="btn_modal_delete(<?php echo $grups->mg_id?>)"><i class="glyphicon glyphicon-trash"></i>Delete</button> <button class="btn btn-xs btn-primary update" link="btn_modal_update(<?php echo $grups->mg_id?>)" nama="<?php echo $grups->mg_nama ?>" desk="<?php echo $grups->mg_deskripsi ?>" id="<?php echo $grups->mg_id ?>"><i class="glyphicon glyphicon-plus"></i> Edit</button></td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -70,6 +70,7 @@
                             <label class="control-label col-md-3">Nama Group *</label>
                             <div class="col-md-9">
                                 <input type="text" name="group_nama" class="form-control" placeholder="Nama Group" required>
+                                <input type="hidden" name="ids">
                             </div>
                         </div>
                         <div class="form-group">
@@ -78,7 +79,7 @@
                                 <input type="text" name="des_group" class="form-control" placeholder="Deskripsi Group" required>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group checkboxx">
                             <!-- <label class="control-label col-md-" >Group</label> -->
                             <div style="border:0px solid #ccc; width:100% ; height: 190px; overflow-y: scroll; padding-left: 10px;">
                               <div class="contain">
@@ -118,9 +119,24 @@
 <!-- / Modal -->
 
 <script>
+    $(document).ready(function(){
+    
+    $('.update').click(function(e){
+    $('#modal_form').modal('show');
+    $('.modal-title').text('Update Group');
+    $('.checkboxx').css('display','none');
+    $('[name="group_nama"]').val($(this).attr('nama'));
+    $('[name="des_group"]').val($(this).attr('desk'));
+    $('[name="ids"]').val($(this).attr('id'));
+    $('#btnSave').attr('onclick',$(this).attr('link'));
+    })
+
     $('#checkall').click(function () {
     $('input[type=checkbox]').not(":disabled").prop('checked', this.checked);
     });
+  
+  })
+
   function add_person()
 {
     save_method = 'add';
@@ -129,6 +145,8 @@
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
     $('.modal-title').text('Tambah Group'); // Set Title to Bootstrap modal title
+    $('.checkboxx').css('display','block');
+    $('#btnSave').attr('onclick','check_all()');
 }
 
   function save()
@@ -198,6 +216,24 @@ function check_all()
           }
         }
     });
+}
+function btn_modal_update(id){
+  $.ajax({
+        url: '<?php echo site_url('inputgrup/update') ?>',
+        type:"POST",
+        data: $('#form').serialize(),
+        success: function(msg){
+          if(msg == "TerUpdate")
+          {
+            window.location.href='<?php echo site_url('inputgrup')?>';
+          }
+          else
+          {
+            alert('gagal');
+          }
+        }
+      });
+
 }
 </script>
 

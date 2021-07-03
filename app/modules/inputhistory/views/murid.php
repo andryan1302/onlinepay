@@ -22,6 +22,12 @@
               <h3 class="box-title">History</h3>
             </div>
             <!-- /.box-header -->
+            <div class="col-sm-10 btn-group form-group">
+                <button class="btn btn-xs btn-danger" onclick="window.location.href='<?php echo site_url('inputhistory')?>'"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
+            </div>
+            <div class="col-sm-2 btn-group form-group">
+                Search : <input type="text" onkeyup="" style="max-width: 115px;">
+            </div>
             <div class="box-body" style="max-height: 300px;overflow-y: scroll;">
               <table id="table" class="table table-hover table-bordered mb-0">
                 <thead>

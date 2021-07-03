@@ -43,17 +43,28 @@
   {
     border-radius: 15px;
     min-height: 500px;
-    margin-top: 60px;
+    margin-top: 100px;
   }
   .text
   {
-    margin-top: 60px;
+    margin-top: 100px;
     color:#00021a;
     font-family: "calibri";
+    font-size:25px;
+  }
+  span:nth-child(1){
+    color:#efefef;
+    font-weight:bold; 
+  }
+  span:nth-child(2){
+    color:#0000ff;
+    font-weight:bold; 
   }
   h1
   {
-   font-family: "calibri"; 
+   font-family: "consolas";
+   font-weight:bold; 
+   font-size:50px;
   }
   .img
   {
@@ -67,20 +78,12 @@
 <div class="overlay">
         <div class="container">
             <div class="row">
-              <div class="col-sm-12">
-                <img src="<?php echo base_url('assets/logo/faviconfhk.png'); ?>" class="img">
-              </div>
             </div>
             <div class="row">
                 <div class="col-sm-7 text">
                   <b>
                   <h1>Pembayaran Online</h1>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <p>Bayar <span class="1">Cepat</span> Anak <span class="2">Semangat</span></p>
                   </b>
                 </div>
                 <div class ="col-sm-4 col-sm-offset-1">
